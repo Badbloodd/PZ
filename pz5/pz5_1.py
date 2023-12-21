@@ -1,30 +1,25 @@
-def draw_horizontal_line(symbol, length):
-    horizontal_line = symbol * length
-    print(horizontal_line)
+#С помощью функций получить вертикальную и горизонтальную линии.
+#Линия проводится многократной печатью символа. Заключить слово в рамку из полученных линий
+def get_input(message):
+    user_input = input(message)
+    return user_input
 
+def print_horizontal_line(length, symbol):
+    print(symbol * length)
 
-def draw_vertical_line(symbol, height):
-    for _ in range(height):
-        print(symbol)
+def print_vertical_line(length, symbol):
+    for _ in range(length):
+        print(symbol + " " + " " * (length - 4) + " " + symbol)
 
+def print_word_in_frame():
+    word = get_input("Введите слово для отображения в рамке: ")
+    symbol = get_input("Введите символ для рамки: ")
+    length = len(word) + 4
 
-def draw_word_in_box(word, symbol):
-    word_length = len(word)
-    horizontal_line = symbol * (word_length + 4)
+    print_horizontal_line(length, symbol)
+    print_vertical_line(length, symbol)
+    print(symbol + " " + word + " " + symbol)
+    print_vertical_line(length, symbol)
+    print_horizontal_line(length, symbol)
 
-    print(horizontal_line)
-    print(f"{symbol} {word} {symbol}")
-    print(horizontal_line)
-
-
-symbol_h = input("Введите символ для горизонтальной линии: ")
-length_h = int(input("Введите длину горизонтальной линии: "))
-draw_horizontal_line(symbol_h, length_h)
-
-symbol_v = input("Введите символ для вертикальной линии: ")
-height_v = int(input("Введите высоту вертикальной линии: "))
-draw_vertical_line(symbol_v, height_v)
-
-word = input("Введите слово для отображения в рамке: ")
-symbol_b = input("Введите символ для рамки: ")
-draw_word_in_box(word, symbol_b)
+print_word_in_frame()

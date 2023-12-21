@@ -1,10 +1,13 @@
 def DigitCountSum(K):
-    C = len(str(K))
-    S = sum(int(digit) for digit in str(K))
+    str_K = str(K)
+    C = len(str_K)
+    S = sum(int(digit) for digit in str_K)
+
     return C, S
 
+input_numbers = input("Введите пять целых чисел через пробел: ")
+numbers = list(map(int, input_numbers.split()))
 
-numbers = [123, 4567, 89012, 345678, 9012345]
 for number in numbers:
-    count, total = DigitCountSum(number)
-    print(f"Число: {number}, количество цифр: {count}, сумма цифр: {total}")
+    count, total_sum = DigitCountSum(number)
+    print(f"Число: {number}, количество цифр: {count}, сумма цифр: {total_sum}")
