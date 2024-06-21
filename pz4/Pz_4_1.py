@@ -1,8 +1,15 @@
+# Дано вещественное число — цена 1 кг конфет.
+# Вывести стоимость 0.1, 0.2, ..., 1 кг конфет
 try:
-    price = float(input("Введите цену 1 кг конфет: "))
+    price = int(input("Введите цену 1 кг конфет: "))
 
-    for i in range(2, 21, 2):
-        cost = price * (i / 10)
-        print(f"Стоимость {i/10} кг конфет: {cost}")
-except:
-    print("Проверьте правильность введеных данных")
+    if price <= 0:
+        raise ValueError("Цена должна быть положительным числом")
+
+    for i in range(1, 11):
+        weight = i / 10
+        price = price * weight
+        print(f"Стоимость {weight} кг конфет: {price:.2f}")
+
+except ValueError as error:
+    print(f"Ошибка: {error}")
